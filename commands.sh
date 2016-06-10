@@ -1,6 +1,6 @@
 gcloud docker push gcr.io/kuberlucida/lucida:20160603_6
 
-    filelist=$(ls examples/nodesjs-mongodb/*-controller.yaml)
+    filelist=$(ls *-controller.yaml)
     if [ "${filelist}" != "" ]; then
         for d in ${filelist}; do
             echo "***** ${d}"
@@ -8,7 +8,7 @@ gcloud docker push gcr.io/kuberlucida/lucida:20160603_6
         done
     fi
 
-    filelist=$(ls examples/nodesjs-mongodb/*-service.yaml)
+    filelist=$(ls *-service.yaml)
     if [ "${filelist}" != "" ]; then
         for d in ${filelist}; do
             echo "***** ${d}"
@@ -16,7 +16,7 @@ gcloud docker push gcr.io/kuberlucida/lucida:20160603_6
         done
     fi
 
-    filelist=$(ls examples/nodesjs-mongodb/*-service.yaml)
+    filelist=$(ls *-service.yaml)
     if [ "${filelist}" != "" ]; then
         for d in ${filelist}; do
             echo "***** ${d}"
@@ -24,13 +24,27 @@ gcloud docker push gcr.io/kuberlucida/lucida:20160603_6
         done
     fi
 
-    filelist=$(ls examples/nodesjs-mongodb/*-controller.yaml)
+    filelist=$(ls *-controller.yaml)
     if [ "${filelist}" != "" ]; then
         for d in ${filelist}; do
             echo "***** ${d}"
             kubectl create -f ${d}
         done
     fi
+
+kubectl delete -f web-service.yaml
+
+kubectl create -f web-service.yaml
+
+kubectl delete -f web-controller.yaml
+
+kubectl create -f web-controller.yaml
+
+kubectl delete -f imm-controller.yaml
+
+kubectl create -f imm-controller.yaml
+
+
 
 gcloud compute forwarding-rules list
 
@@ -42,6 +56,6 @@ kubectl get pods
     if [ "${filelist}" != "" ]; then
         for d in ${filelist}; do
             echo "***** ${d}"
-            kubectl delete -f ${d}
+            docker cp ${d} 334ccbd30589:/usr/local/lucida/lucida/questionanswering/OpenEphyra/info/ephyra/answerselection/filters/
         done
     fi
