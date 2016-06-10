@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida-dev
         command: ['/bin/sh', '-c']
-        args: ['cd calendar/; ./gradlew run']
+        args: ['export DOCKER=True && cd calendar/; ./gradlew run']
         name: ca
         ports:
         - containerPort: 8084
