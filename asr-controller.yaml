@@ -18,3 +18,6 @@ spec:
         command: ['/bin/sh', '-c']
         args: ['cd speechrecognition/kaldi_gstreamer_asr/ && python kaldigstserver/worker.py -u ws://$(WEB_PORT_3000_TCP_ADDR):8888/worker/ws/speech -c sample_english_nnet2.yaml']
         name: asr
+        ports:
+        - containerPort: 8081
+          name: http-server
