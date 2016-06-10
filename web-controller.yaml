@@ -14,9 +14,9 @@ spec:
         name: web
     spec:
       containers:
-      - image: gcr.io/kuberlucida/lucida:20160603_7
+      - image: ybga/lucida-dev
         command: ['/bin/sh', '-c']
-        args: ['cd commandcenter/ && python app.py']
+        args: ['export DOCKER=True && cd commandcenter/ && python app.py']
         name: web
         ports:
         - containerPort: 3000

@@ -14,9 +14,9 @@ spec:
         name: imm
     spec:
       containers:
-      - image: gcr.io/kuberlucida/lucida:20160603_7
+      - image: ybga/lucida-dev
         command: ['/bin/sh', '-c']
-        args: ['cd imagematching/opencv_imm/server/ && ./imm_server']
+        args: ['export DOCKER=True && cd imagematching/opencv_imm/server/ && ./imm_server']
         name: imm
         ports:
         - containerPort: 8082
