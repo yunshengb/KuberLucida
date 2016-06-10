@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida-dev
         command: ['/bin/sh', '-c']
-        args: ['cd speechrecognition/kaldi_gstreamer_asr/ && export GST_PLUGIN_PATH=$LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr/kaldi/tools/gst-kaldi-nnet2-online/src && python kaldigstserver/worker.py -u ws://$ASR_PORT_8081_TCP_ADDR:8081/worker/ws/speech -c sample_english_nnet2.yaml']
+        args: ['cd speechrecognition/kaldi_gstreamer_asr/ && export GST_PLUGIN_PATH=$LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr/kaldi/tools/gst-kaldi-nnet2-online/src && python kaldigstserver/worker.py -u ws://$ASR_PORT_80_TCP_ADDR:8081/worker/ws/speech -c sample_english_nnet2.yaml']
         name: asrworker
         ports:
         - containerPort: 8081
