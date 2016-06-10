@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   labels:
     name: asrworker
-  name: asr-controller
+  name: asrworker-controller
 spec:
   replicas: 2
   selector:

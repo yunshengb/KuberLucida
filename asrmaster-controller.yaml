@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   labels:
     name: asrmaster
-  name: asr-controller
+  name: asrmaster-controller
 spec:
   replicas: 1
   selector:
