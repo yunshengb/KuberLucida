@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida-dev
         command: ['/bin/sh', '-c']
-        args: ['export DOCKER=True && cd commandcenter/ && python app.py']
+        args: ['export DOCKER=True && export ASR=True && cd commandcenter/ && python app.py']
         name: asrmaster
         ports:
         - containerPort: 8081
