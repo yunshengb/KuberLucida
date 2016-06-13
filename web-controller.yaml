@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida-dev
         command: ['/bin/sh', '-c']
-        args: ['/usr/sbin/apache2ctl -D FOREGROUND']
+        args: ['export DOCKER=True && cd commandcenter/ && python app.py']
         name: web
         ports:
         - containerPort: 3000
