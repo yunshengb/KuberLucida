@@ -19,5 +19,5 @@ spec:
         args: ['/usr/sbin/apache2ctl -D FOREGROUND']
         name: web
         ports:
-        - containerPort: 3000
+        - containerPort: 80
           name: http-server
