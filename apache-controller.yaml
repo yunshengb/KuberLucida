@@ -16,7 +16,7 @@ spec:
       containers:
       - image: muneeb/apache-flask
         command: ['/bin/sh', '-c']
-        args: ['/usr/sbin/apache2ctl -D FOREGROUND']
+        args: ['sudo /usr/sbin/apache2ctl -D FOREGROUND']
         name: apache
         ports:
         - containerPort: 80
