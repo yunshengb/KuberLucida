@@ -16,8 +16,16 @@ spec:
       containers:
       - image: ybga/lucida-dev
         command: ['/bin/sh', '-c']
-        args: ['/usr/sbin/apache2ctl -D FOREGROUND']
+        args: ['sudo /usr/sbin/apache2ctl -D FOREGROUND']
         name: web
         ports:
         - containerPort: 80
           name: http-server
+        volumeMounts:
+          - mountPath: /usr/local/lucida/lucida/commandcenter/https
+            name: test-volume
+            readOnly: false
+      volumes:
+        - hostPath:
+          path: /etc/letsencrypt/live/clarity13.eecs.umich.edu
+          name: test-volume
