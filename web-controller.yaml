@@ -22,10 +22,10 @@ spec:
         - containerPort: 80
           name: http-server
         volumeMounts:
-          - mountPath: /usr/local/lucida/lucida/commandcenter/https
+          - mountPath: /etc/letsencrypt/live/host
             name: test-volume
             readOnly: false
       volumes:
         - hostPath:
-            path: /etc/letsencrypt/live/clarity13.eecs.umich.edu
+            path: /etc/letsencrypt/archive/clarity13.eecs.umich.edu
           name: test-volume
