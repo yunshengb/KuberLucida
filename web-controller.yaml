@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida-dev
         command: ['/bin/sh', '-c']
-        args: ['sudo a2enmod ssl && service apache2 restart && sudo /usr/sbin/apache2ctl -D FOREGROUND']
+        args: ['']
         name: web
         ports:
         - containerPort: 80
