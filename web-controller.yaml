@@ -27,5 +27,5 @@ spec:
             readOnly: false
       volumes:
         - hostPath:
-          path: /etc/letsencrypt/live/clarity13.eecs.umich.edu
+            path: /etc/letsencrypt/live/clarity13.eecs.umich.edu
           name: test-volume
