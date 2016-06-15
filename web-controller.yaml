@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida-dev
         command: ['/bin/sh', '-c']
-        args: ['']
+        args: ['cd commandcenter && python app.py']
         name: web
         ports:
         - containerPort: 80
