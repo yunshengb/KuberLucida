@@ -14,9 +14,9 @@ spec:
         name: web
     spec:
       containers:
-      - image: ybga/lucida-dev
+      - image: lucida-dev-20160615
         command: ['/bin/sh', '-c']
-        args: ['cd commandcenter && python app.py']
+        args: ['sudo a2enmod ssl && service apache2 restart && sudo /usr/sbin/apache2ctl -D FOREGROUND']
         name: web
         ports:
         - containerPort: 80
