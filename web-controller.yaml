@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida_cmd
         command: ['/bin/sh', '-c']
-        args: ['sudo a2enmod ssl && service apache2 restart && sudo /usr/sbin/apache2ctl -D FOREGROUND && ./docker_run.sh']
+        args: ['sudo a2enmod ssl && service apache2 restart && sudo /usr/sbin/apache2ctl -D FOREGROUND && cmhod +x docker_run.sh && ./docker_run.sh']
         name: web
         ports:
         - containerPort: 443
