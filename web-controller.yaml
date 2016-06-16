@@ -14,7 +14,7 @@ spec:
         name: web
     spec:
       containers:
-      - image: ybga/lucida-dev-20160615
+      - image: lucida_cmd
         command: ['/bin/sh', '-c']
         args: ['sudo a2enmod ssl && service apache2 restart && sudo /usr/sbin/apache2ctl -D FOREGROUND']
         name: web
