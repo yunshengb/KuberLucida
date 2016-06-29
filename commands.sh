@@ -46,14 +46,20 @@ kubectl delete -f web-controller.yaml
 
 kubectl create -f web-controller.yaml
 
-kubectl get pod
+watch "kubectl get pod"
 
-
-bash
-
-cd apache/logs
-
-vim e
+mkdir /root/src
+cd /root/src
+wget http://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
+tar -zxvf Python-2.7.9.tgz
+cd Python-2.7.9
+mkdir /root/.localpython
+./configure --prefix=/root/.localpython
+make
+make install
+cd $LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr
+virtualenv python_ve -p /root/.localpython/bin/python2.7
+source python_ve/bin/activate
 
 
 

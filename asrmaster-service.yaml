@@ -5,10 +5,9 @@ metadata:
   labels:
     name: asr
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-    - nodePort: 30002
-      port: 8081
+    - port: 8081
       targetPort: 8081
       protocol: TCP
   selector:
