@@ -32,6 +32,12 @@ gcloud docker push gcr.io/kuberlucida/lucida:20160603_6
         done
     fi
 
+sudo openssl x509 -in /etc/letsencrypt/live/host/cert1.pem -noout -subject
+
+
+vim /etc/apache2/sites-available/000-default.conf
+
+
 kubectl delete -f web-service.yaml
 
 kubectl create -f web-service.yaml
@@ -45,6 +51,7 @@ kubectl delete -f imm-controller.yaml
 kubectl create -f imm-controller.yaml
 
 
+vim /etc/apache2/sites-available/000-default.conf
 
 gcloud compute forwarding-rules list
 
