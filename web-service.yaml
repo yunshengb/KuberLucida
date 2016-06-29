@@ -7,9 +7,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - nodePort: 30000
-      port: 80
-      targetPort: 80
+    - nodePort: 30001
+      port: 443
+      targetPort: 443
       protocol: TCP
   selector:
     name: web
