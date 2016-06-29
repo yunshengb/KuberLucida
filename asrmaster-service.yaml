@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: asr
+  name: asrmaster
   labels:
-    name: asr
+    name: asrmaster
 spec:
   type: LoadBalancer
   ports:
@@ -11,4 +11,4 @@ spec:
       targetPort: 8081
       protocol: TCP
   selector:
-    name: asr
+    name: asrmaster
