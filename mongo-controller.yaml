@@ -19,10 +19,9 @@ spec:
           containerPort: 27017
           hostPort: 27017
         volumeMounts:
-          - mountPath: /data/db
-            name: mongo-persistent-storage
-            readOnly: false
+            - name: mongo-persistent-storage
+              mountPath: /data/db
       volumes:
-        - hostPath:
-            path: /home/yba/lucida/mongoData
-          name: mongo-persistent-storage
+        - name: mongo-persistent-storage
+          hostPath:
+            path: /tmp
