@@ -21,3 +21,11 @@ spec:
         ports:
         - containerPort: 8083
           name: thrift
+        volumeMounts:
+          - mountPath: /usr/local/lucida/lucida/questionanswering/OpenEphyra/db
+            name: openephyra-db
+            readOnly: false
+      volumes:
+        - hostPath:
+            path: /tmp
+          name: openephyra-db

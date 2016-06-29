@@ -46,6 +46,17 @@ kubectl delete -f web-controller.yaml
 
 kubectl create -f web-controller.yaml
 
+kubectl get pod
+
+
+bash
+
+cd apache/logs
+
+vim e
+
+
+
 kubectl delete -f imm-controller.yaml
 
 kubectl create -f imm-controller.yaml
