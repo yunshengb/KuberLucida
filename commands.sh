@@ -48,6 +48,13 @@ kubectl create -f web-controller.yaml
 
 watch "kubectl get pod"
 
+kubectl delete -f asrmaster-controller.yaml
+
+kubectl create -f asrmaster-controller.yaml
+
+watch "kubectl get pod"
+
+
 mkdir /root/src
 cd /root/src
 wget http://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
@@ -58,8 +65,10 @@ mkdir /root/.localpython
 make
 make install
 cd $LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr
-virtualenv python_ve -p /root/.localpython/bin/python2.7
-source python_ve/bin/activate
+virtualenv python_2_7_9 -p /root/.localpython/bin/python2.7
+source python_2_7_9/bin/activate
+pip install tornado==4.3
+mkdir -p /etc/letsencrypt/live/host
 
 
 
