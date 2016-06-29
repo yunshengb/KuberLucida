@@ -4,20 +4,12 @@ metadata:
   name: web
   labels:
     name: web
-    role: "ssl-proxy"
 spec:
   type: NodePort
   ports:
     - nodePort: 30001
-      name: "https"
-      port: 443
-      targetPort: 443
-      protocol: "TCP"
-    - nodePort: 30000
-      name: "http"
       port: 80
       targetPort: 80
-      protocol: "TCP"
+      protocol: TCP
   selector:
     name: web
-    role: "ssl-proxy"
