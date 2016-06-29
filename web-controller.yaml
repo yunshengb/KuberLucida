@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida_cmd
         command: ['/bin/sh', '-c']
-        args: ['sudo a2enmod ssl && sudo /usr/sbin/apache2ctl -D FOREGROUND']
+        args: ['sudo a2enmod ssl && echo $MONGO_PORT_27017_TCP_ADD && sudo /usr/sbin/apache2ctl -D FOREGROUND']
         name: web
         ports:
         - containerPort: 443
