@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida_cmd
         command: ['/bin/sh', '-c']
-        args: ['sudo /usr/sbin/apache2ctl -D FOREGROUND']
+        args: ['export LUCIDAROOT=/usr/local/lucida/lucida && sudo /usr/sbin/apache2ctl -D FOREGROUND']
         name: web
         ports:
         - containerPort: 80
