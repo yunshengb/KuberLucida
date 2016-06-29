@@ -5,7 +5,7 @@ metadata:
     name: mongo
   name: mongo-controller
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -19,9 +19,10 @@ spec:
           containerPort: 27017
           hostPort: 27017
         volumeMounts:
-            - name: mongo-persistent-storage
-              mountPath: /data/db
+          - mountPath: /data/db
+            name: mongo-persistent-storage
+            readOnly: false
       volumes:
-        - name: mongo-persistent-storage
-          hostPath:
-            path: /tmp
+        - hostPath:
+            path: /tmp/mongo
+          name: mongo-persistent-storage
