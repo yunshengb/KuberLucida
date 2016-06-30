@@ -18,6 +18,3 @@ spec:
         command: ['/bin/sh', '-c']
         args: ['export GST_PLUGIN_PATH=$LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr/kaldi/tools/gst-kaldi-nnet2-online/src && python kaldigstserver/worker.py -u wss://clarity13.eecs.umich.edu:30001/worker/ws/speech -c sample_english_nnet2.yaml']
         name: asrworker
-        ports:
-        - containerPort: 8081
-          name: http-server
