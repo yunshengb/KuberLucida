@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: freebase
+  name: freebase-controller
+spec:
+  replicas: 1
+  selector:
+    name: freebase
+  template:
+    metadata:
+      labels:
+        name: freebase
+    spec:
+      containers:
+      - image: ybga/fuseki
+        command: ['/bin/sh', '-c']
+        args: ['./fuseki-server --loc d-freebase /freebase']
+        name: freebase
+        ports:
+        - containerPort: 3030
+          name: freebase
+        volumeMounts:
+          - mountPath: /solr-4.6.0/example/enwiki/collection1/
+            name: freebase-persistent-storage
+            readOnly: false
+      volumes:
+        - hostPath:
+            path: /home/yba/data/d-freebase/
+          name: freebase-persistent-storage
