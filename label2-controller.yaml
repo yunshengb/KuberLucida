@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: label2
+  name: label2-controller
+spec:
+  replicas: 1
+  selector:
+    name: label2
+  template:
+    metadata:
+      labels:
+        name: label2
+    spec:
+      containers:
+      - image: ybga/labels
+        command: ['/bin/sh', '-c']
+        args: ['pypy /label-lookup/lookup-service-sqlite.py /shared/labels.db']
+        name: label2
+        ports:
+        - containerPort: 5001
+          name: label2
+        volumeMounts:
+          - mountPath: /shared
+            name: label2-persistent-storage
+            readOnly: false
+      volumes:
+        - hostPath:
+            path: /home/yba/data/labels/
+          name: label2-persistent-storage
