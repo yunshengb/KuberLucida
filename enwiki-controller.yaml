@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: enwiki
+  name: enwiki-controller
+spec:
+  replicas: 1
+  selector:
+    name: enwiki
+  template:
+    metadata:
+      labels:
+        name: enwiki
+    spec:
+      containers:
+      - image: ybga/solr
+        command: ['/bin/sh', '-c']
+        args: ['java -Dsolr.solr.home=enwiki -jar start.jar']
+        name: enwiki
+        ports:
+        - containerPort: 8983
+          name: enwiki
+        volumeMounts:
+          - mountPath: /solr-4.6.0/example/enwiki/collection1/
+            name: enwiki-persistent-storage
+            readOnly: false
+      volumes:
+        - hostPath:
+            path: /home/yba/data/enwiki/collection1/
+          name: enwiki-persistent-storage
