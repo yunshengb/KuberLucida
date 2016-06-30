@@ -65,13 +65,30 @@ cd /root/src
 wget http://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
 tar -zxvf Python-2.7.9.tgz
 cd Python-2.7.9
-mkdir /root/.localpython
-./configure --prefix=/root/.localpython
+mkdir /root/.localpython2_7_9
+./configure --prefix=/root/.localpython2_7_9
 make
 make install
 cd $LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr
-virtualenv python_2_7_9 -p /root/.localpython/bin/python2.7
+virtualenv python_2_7_9 -p /root/.localpython2_7_9/bin/python2.7
 source python_2_7_9/bin/activate
+pip install tornado==4.3
+mkdir -p /etc/letsencrypt/live/host
+
+
+
+mkdir /root/src
+cd /root/src
+wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tgz
+tar -zxvf Python-2.7.6.tgz
+cd Python-2.7.6
+mkdir /root/.localpython2_7_6
+./configure --prefix=/root/.localpython2_7_6
+make
+make install
+cd $LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr
+virtualenv python_2_7_6 -p /root/.localpython2_7_6/bin/python2.7
+source python_2_7_6/bin/activate
 pip install tornado==4.3
 mkdir -p /etc/letsencrypt/live/host
 
