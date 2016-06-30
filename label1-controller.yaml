@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: label1
+  name: label1-controller
+spec:
+  replicas: 1
+  selector:
+    name: label1
+  template:
+    metadata:
+      labels:
+        name: label1
+    spec:
+      containers:
+      - image: ybga/labels
+        command: ['/bin/sh', '-c']
+        args: ['pypy /label-lookup/lookup-service.py /shared/sorted_list.dat']
+        name: label1
+        ports:
+        - containerPort: 5000
+          name: label1
+        volumeMounts:
+          - mountPath: /shared
+            name: label1-persistent-storage
+            readOnly: false
+      volumes:
+        - hostPath:
+            path: /home/yba/data/labels/
+          name: label1-persistent-storage
