@@ -77,9 +77,21 @@ mkdir -p /etc/letsencrypt/live/host
 
 
 
-kubectl delete -f imm-controller.yaml
 
+kubectl create -f mongo-service.yaml
+kubectl create -f asrmaster-service.yaml
+kubectl create -f imm-service.yaml
+kubectl create -f qa-service.yaml
+kubectl create -f ca-service.yaml
+kubectl create -f web-service.yaml
+
+kubectl create -f mongo-controller.yaml
+kubectl create -f asrmaster-controller.yaml
+kubectl create -f asrworker-controller.yaml
 kubectl create -f imm-controller.yaml
+kubectl create -f qa-controller.yaml
+kubectl create -f ca-controller.yaml
+kubectl create -f web-controller.yaml
 
 
 vim /etc/apache2/sites-available/000-default.conf
