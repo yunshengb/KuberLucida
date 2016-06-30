@@ -5,6 +5,7 @@ metadata:
     name: asrmaster
   name: asrmaster-controller
 spec:
+  replicas: 1
   selector:
     name: asrmaster
   template:
@@ -14,7 +15,6 @@ spec:
     spec:
       containers:
       - image: ybga/lucida_asr
-        replicas: 1
         command: ['/bin/sh', '-c']
         args: ['export HTTPS=True && source python_2_7_9/bin/activate && python kaldigstserver/master_server.py --port=8081']
         name: asrmaster
