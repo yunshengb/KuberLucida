@@ -23,9 +23,9 @@ spec:
           name: thrift
         volumeMounts:
           - mountPath: /usr/local/lucida/lucida/questionanswering/OpenEphyra/db
-            name: openephyra-db
+            name: openephyra-persistent-storage
             readOnly: false
       volumes:
         - hostPath:
-            path: /tmp
-          name: openephyra-db
+            path: /tmp/openephyra
+          name: openephyra-persistent-storage

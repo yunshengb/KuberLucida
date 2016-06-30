@@ -23,9 +23,9 @@ spec:
           name: http-server
         volumeMounts:
           - mountPath: /etc/letsencrypt/live/host
-            name: test-volume
+            name: web-ssl
             readOnly: false
       volumes:
         - hostPath:
             path: /etc/letsencrypt/archive/clarity13.eecs.umich.edu
-          name: test-volume
+          name: web-ssl
