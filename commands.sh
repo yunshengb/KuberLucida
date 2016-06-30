@@ -48,6 +48,11 @@ kubectl create -f web-controller.yaml
 
 watch "kubectl get pod"
 
+
+kubectl delete -f asrmaster-service.yaml
+
+kubectl create -f asrmaster-service.yaml
+
 kubectl delete -f asrmaster-controller.yaml
 
 kubectl create -f asrmaster-controller.yaml
