@@ -22,7 +22,7 @@ spec:
         - containerPort: 8983
           name: enwiki
         volumeMounts:
-          - mountPath: /solr-4.6.0/example/enwiki/collection1/
+          - mountPath: /solr/example/enwiki/collection1/
             name: enwiki-persistent-storage
             readOnly: false
       volumes:

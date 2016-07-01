@@ -2,30 +2,30 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
-    name: freebase
+    name: dbpedia
   name: freebase-controller
 spec:
   replicas: 1
   selector:
-    name: freebase
+    name: dbpedia
   template:
     metadata:
       labels:
-        name: freebase
+        name: dbpedia
     spec:
       containers:
       - image: ybga/fuseki
         command: ['/bin/sh', '-c']
         args: ['./fuseki-server --loc d-freebase /freebase']
-        name: freebase
+        name: dbpedia
         ports:
-        - containerPort: 3030
-          name: freebase
+        - containerPort: 3037
+          name: dbpedia
         volumeMounts:
-          - mountPath: /jena-fuseki/d-freebase/
-            name: freebase-persistent-storage
+          - mountPath: /jena-fuseki/db/
+            name: dbpedia-persistent-storage
             readOnly: false
       volumes:
         - hostPath:
-            path: /home/yba/data/d-freebase/
-          name: freebase-persistent-storage
+            path: /home/yba/data/db/
+          name: dbpedia-persistent-storage
