@@ -57,6 +57,8 @@ kubectl delete -f asrmaster-controller.yaml
 
 kubectl create -f asrmaster-controller.yaml
 
+kubectl 
+
 watch "kubectl get pod"
 
 

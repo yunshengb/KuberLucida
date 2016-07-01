@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   labels:
     name: dbpedia
-  name: freebase-controller
+  name: dbpedia-controller
 spec:
   replicas: 1
   selector:
@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/fuseki
         command: ['/bin/sh', '-c']
-        args: ['./fuseki-server --loc d-freebase /freebase']
+        args: ['./fuseki-server --port 3037 --loc db /dbpedia']
         name: dbpedia
         ports:
         - containerPort: 3037

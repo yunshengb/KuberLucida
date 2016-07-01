@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: yoda_offline
+  labels:
+    name: yoda_offline
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 4567
+      targetPort: 4567
+      protocol: TCP
+  selector:
+    name: yoda_offline

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: ensemble
+  name: ensemble-controller
+spec:
+  replicas: 1
+  selector:
+    name: ensemble
+  template:
+    metadata:
+      labels:
+        name: ensemble
+    spec:
+      containers:
+      - image: ybga/ensemble
+        command: ['/bin/sh', '-c']
+        args: ['./gradlew runThriftBackend -Dde.rwthaachen.ensemble.webqaurl="http://$WEBQA_PORT_4000_TCP_ADDR:4000" -Dde.rwthaachen.ensemble.yodaqaurl="http://$YODA_OFFLINE_PORT_4567_TCP_ADDR:4567" -Dwordnet.database.dir=/home/fp/Downloads/WordNet-3.0/dict']
+        name: ensemble
+        ports:
+        - containerPort: 9090
+          name: ensemble
