@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida_cmd
         command: ['/bin/sh', '-c']
-        args: ['export HTTPS=True && sudo a2enmod ssl && export LUCIDAROOT=/usr/local/lucida/lucida && env > apache/envs.txt && sudo /usr/sbin/apache2ctl -D FOREGROUND']
+        args: ['export ASR_ADDR_PORT=wss://clarity13.eecs.umich.edu:30001 && sudo a2enmod ssl && export LUCIDAROOT=/usr/local/lucida/lucida && env > apache/envs.txt && sudo /usr/sbin/apache2ctl -D FOREGROUND']
         name: web
         ports:
         - containerPort: 443
