@@ -2,22 +2,22 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
-    name: yoda_offline
-  name: yoda_offline-controller
+    name: yodaoffline
+  name: yodaoffline-controller
 spec:
   replicas: 1
   selector:
-    name: yoda_offline
+    name: yodaoffline
   template:
     metadata:
       labels:
-        name: yoda_offline
+        name: yodaoffline
     spec:
       containers:
       - image: ybga/yodaqa
         command: ['/bin/sh', '-c']
         args: ['./gradlew web -q -Dcz.brmlab.yodaqa.dbpediaurl="http://$DBPEDIA_PORT_3037_TCP_ADDR:3037/dbpedia/query" -Dcz.brmlab.yodaqa.freebaseurl="http://$FREEBASE_PORT_3030_TCP_ADDR:3030/freebase/query" -Dcz.brmlab.yodaqa.solrurl="http://$ENWIKI_PORT_8983_TCP_ADDR:8983/solr" -Dcz.brmlab.yodaqa.label1url="http://$LABEL1_PORT_5000_TCP_ADDR:5000" -Dcz.brmlab.yodaqa.label2url="http://$LABEL2_PORT_5001_TCP_ADDR:5001"']
-        name: yoda_offline
+        name: yodaoffline
         ports:
         - containerPort: 4567
-          name: yoda_offline
+          name: yodaoffline
