@@ -24,4 +24,4 @@ spec:
       volumes:
         - name: mongo-persistent-storage
           hostPath:
-            path: /tmp/mongodb
+            path: /home/yba/lucida_data/mongodb

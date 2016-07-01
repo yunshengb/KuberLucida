@@ -27,5 +27,5 @@ spec:
             readOnly: false
       volumes:
         - hostPath:
-            path: /tmp/openephyra
+            path: /home/yba/lucida_data/openephyra
           name: openephyra-persistent-storage
