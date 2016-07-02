@@ -24,7 +24,7 @@ chmod +x /usr/bin/kubectl
 kubectl config set-cluster test-doc --server=http://localhost:8080
 kubectl config set-context test-doc --cluster=test-doc
 kubectl config use-context test-doc
-# Wait until "kubectl get pod" does not give error.
+echo "Exiting... Wait until 'kubectl get pod' does not give error. Then copy and run the rest of this script."
 exit
 
 # Before going on, make sure the cluster is set up.
