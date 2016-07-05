@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida_qa
         command: ['/bin/sh', '-c']
-        args: ['cd cd $LUCIDAROOT/questionanswering/OpenEphyra/ && chmod +x start_server.sh && ./start_server.sh']
+        args: ['cd $LUCIDAROOT/questionanswering/OpenEphyra/ && chmod +x start_server.sh && ./start_server.sh']
         name: qa
         ports:
         - containerPort: 8083
