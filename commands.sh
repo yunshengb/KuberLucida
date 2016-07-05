@@ -1,5 +1,5 @@
 # Set up a local cluster via docker on a single machine.
-export K8S_VERSION=$(curl -sS https://storage.googleapis.com/kubernetes-release/release/stable.txt)
+export K8S_VERSION=v1.2.5
 export ARCH=amd64
 docker run -d \
 --volume=/:/rootfs:ro \
@@ -61,6 +61,8 @@ if [ "${filelist}" != "" ]; then
         kubectl create -f ${d}
     done
 fi
+
+sudo netstat -tulpn | grep 27017 # kill existing mongo instance
 
 kubectl get services
 

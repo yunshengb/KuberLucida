@@ -14,7 +14,7 @@ spec:
         name: imm
     spec:
       containers:
-      - image: ybga/lucida-dev
+      - image: ybga/lucida_imm
         command: ['/bin/sh', '-c']
         args: ['export DOCKER=True && cd imagematching/opencv_imm/server/ && ./imm_server']
         name: imm
